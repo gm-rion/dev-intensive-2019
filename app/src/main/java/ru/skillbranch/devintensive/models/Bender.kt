@@ -4,6 +4,8 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 
 class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME) {
 
+    var count: Int = 0
+
     fun askQuestion(): String = when(question){
                 Question.NAME -> Question.NAME.question
                 Question.PROFESSION -> Question.PROFESSION.question
@@ -17,8 +19,16 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
 
         return if (question.answer.contains(answer)){
             question = question.nextQuestion()
-            "Отлично - это правильный ответ.\n${question.question}" to status.color
+            "Отлично - ты справился\n${question.question}" to status.color
+        }else if (question == Question.IDLE) {
+            "Отлично - ты справился\nНа этом все, вопросов больше нет" to status.color
+
+        }else if (count > 3){
+            status = Status.NORMAL
+            question = Question.NAME
+            "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
         }else{
+            count++
             status = status.nextStatus()
             "Это не правильный ответ.\n${question.question}" to status.color
         }
