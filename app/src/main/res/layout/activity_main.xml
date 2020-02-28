@@ -4,58 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.profile.ProfileActivity">
 
-    <TextView
-        android:id="@+id/tv_text"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="Hello World!"
-        android:textSize="@dimen/font_large_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/iv_bender"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spasing_normal_16"
-        android:background="@color/color_primary"
-        android:orientation="horizontal">
-
-        <EditText android:id="@+id/et_message"
-            android:layout_width="0dp"
+        <ru.skillbranch.devintensive.ui.custom.AspectRatioImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spasing_normal_16"
-            android:layout_marginRight="@dimen/spasing_normal_16"
-            android:layout_weight="1"
-            android:hint="Введите текст"
-            android:lines="1"
-            android:paddingTop="@dimen/spasing_normal_16"
-            android:paddingBottom="@dimen/spasing_normal_16"
-            android:textColor="@color/color_gray_light"
-            android:textColorHint="@color/color_gray_light" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_bg"
+            app:aspectRatio="1.78" />
 
-        <ImageView
-            android:id="@+id/iv_send"
-            android:layout_width="@dimen/spasing_large_24"
-            android:layout_height="@dimen/spasing_large_24"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/spasing_normal_16"
-            android:src="@drawable/ic_send_black_24dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageButton
+                android:layout_width="@dimen/btn_round_size_40"
+                android:layout_height="@dimen/btn_round_size_40"
+                android:background="@drawable/btn_round_bg"
+                android:src="@drawable/ic_brightness_high_black_24dp"/>
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/avatar_round_size"
+                android:layout_height="@dimen/avatar_round_size" />
+
+            <ImageButton
+                android:layout_width="@dimen/btn_round_size_40"
+                android:layout_height="@dimen/btn_round_size_40"
+                android:background="@drawable/btn_round_bg"
+                android:src="@drawable/ic_edit_black_24dp"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
 
 </LinearLayout>
